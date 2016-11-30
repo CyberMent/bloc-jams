@@ -58,6 +58,36 @@ var albumMarconi = {
         }
      ]
 };
+// My album
+var albumMJ = {
+    title: 'Dangerous'
+    , artist: 'Michael Jackson'
+    , label: 'Pepsi'
+    , year: '1985'
+    , albumArtUrl: 'assets/images/album_covers/10.png'
+    , songs: [
+        {
+            title: 'Thriller'
+            , duration: '1:10'
+        }
+        , {
+            title: 'Man in the mirror'
+            , duration: '2:20'
+        }
+        , {
+            title: 'Heal the World'
+            , duration: '3:30'
+        }
+        , {
+            title: 'Billie Jean'
+            , duration: '4:40'
+        }
+        , {
+            title: 'Beat it'
+            , duration: '5:50'
+        }
+     ]
+};
 var createSongRow = function (songNumber, songName, songLength) {
     var template = '<tr class="album-view-song-item">' + '  <td class="song-item-number">' + songNumber + '</td>' + '  <td class="song-item-title">' + songName + '</td>' + '  <td class="song-item-duration">' + songLength + '</td>' + '</tr>';
     return template;
@@ -84,3 +114,23 @@ var setCurrentAlbum = function (album) {
 window.onload = function () {
     setCurrentAlbum(albumPicasso);
 };
+var curAlbumNum = 0;
+
+function nextAlbum() {
+    if (curAlbumNum === 0) {
+        album = albumMarconi;
+    }
+    else if (curAlbumNum === 1) {
+        album = albumMJ;
+    }
+    else {
+        album = albumPicasso;
+        curAlbumNum = -1;
+    }
+    curAlbumNum++;
+    return album;
+}
+var coverListener = document.getElementsByClassName("album-cover-art");
+coverListener[0].addEventListener("click", function () {
+    setCurrentAlbum(nextAlbum());
+}, false);
