@@ -6,11 +6,6 @@
      , albumArtUrl: 'assets/images/album_covers/01.png'
      , songs: [
          {
-             title: 'Magenta'
-             , duration: '2:15'
-             , audioUrl: 'assets/music/magenta'
-         }
-         , {
              title: 'Blue'
              , duration: 161.71
              , audioUrl: 'assets/music/blue'
